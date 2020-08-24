@@ -1,0 +1,146 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"arm_lift_link" [label="arm_lift_link"];
+"arm_flex_link" [label="arm_flex_link"];
+"arm_roll_link" [label="arm_roll_link"];
+"wrist_flex_link" [label="wrist_flex_link"];
+"wrist_ft_sensor_mount_link" [label="wrist_ft_sensor_mount_link"];
+"wrist_ft_sensor_frame" [label="wrist_ft_sensor_frame"];
+"wrist_roll_link" [label="wrist_roll_link"];
+"hand_palm_link" [label="hand_palm_link"];
+"hand_camera_frame" [label="hand_camera_frame"];
+"hand_camera_gazebo_frame" [label="hand_camera_gazebo_frame"];
+"hand_l_proximal_link" [label="hand_l_proximal_link"];
+"hand_l_spring_proximal_link" [label="hand_l_spring_proximal_link"];
+"hand_l_mimic_distal_link" [label="hand_l_mimic_distal_link"];
+"hand_l_distal_link" [label="hand_l_distal_link"];
+"hand_l_finger_tip_frame" [label="hand_l_finger_tip_frame"];
+"hand_l_finger_vacuum_frame" [label="hand_l_finger_vacuum_frame"];
+"hand_motor_dummy_link" [label="hand_motor_dummy_link"];
+"hand_r_proximal_link" [label="hand_r_proximal_link"];
+"hand_r_spring_proximal_link" [label="hand_r_spring_proximal_link"];
+"hand_r_mimic_distal_link" [label="hand_r_mimic_distal_link"];
+"hand_r_distal_link" [label="hand_r_distal_link"];
+"hand_r_finger_tip_frame" [label="hand_r_finger_tip_frame"];
+"base_b_bumper_link" [label="base_b_bumper_link"];
+"base_f_bumper_link" [label="base_f_bumper_link"];
+"base_imu_frame" [label="base_imu_frame"];
+"base_range_sensor_link" [label="base_range_sensor_link"];
+"base_roll_link" [label="base_roll_link"];
+"base_l_drive_wheel_link" [label="base_l_drive_wheel_link"];
+"base_l_passive_wheel_x_frame" [label="base_l_passive_wheel_x_frame"];
+"base_l_passive_wheel_y_frame" [label="base_l_passive_wheel_y_frame"];
+"base_l_passive_wheel_z_link" [label="base_l_passive_wheel_z_link"];
+"base_r_drive_wheel_link" [label="base_r_drive_wheel_link"];
+"base_r_passive_wheel_x_frame" [label="base_r_passive_wheel_x_frame"];
+"base_r_passive_wheel_y_frame" [label="base_r_passive_wheel_y_frame"];
+"base_r_passive_wheel_z_link" [label="base_r_passive_wheel_z_link"];
+"torso_lift_link" [label="torso_lift_link"];
+"head_pan_link" [label="head_pan_link"];
+"head_tilt_link" [label="head_tilt_link"];
+"head_center_camera_frame" [label="head_center_camera_frame"];
+"head_center_camera_gazebo_frame" [label="head_center_camera_gazebo_frame"];
+"head_l_stereo_camera_link" [label="head_l_stereo_camera_link"];
+"head_l_stereo_camera_gazebo_frame" [label="head_l_stereo_camera_gazebo_frame"];
+"head_r_stereo_camera_link" [label="head_r_stereo_camera_link"];
+"head_r_stereo_camera_gazebo_frame" [label="head_r_stereo_camera_gazebo_frame"];
+"head_rgbd_sensor_link" [label="head_rgbd_sensor_link"];
+"head_rgbd_sensor_gazebo_frame" [label="head_rgbd_sensor_gazebo_frame"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "base_footprint_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_footprint_joint" -> "base_link"
+"base_link" -> "arm_lift_joint" [label="xyz: 0 0 0.34 \nrpy: 0 -0 0"]
+"arm_lift_joint" -> "arm_lift_link"
+"arm_lift_link" -> "arm_flex_joint" [label="xyz: 0.141 0.078 0 \nrpy: 0 -0 0"]
+"arm_flex_joint" -> "arm_flex_link"
+"arm_flex_link" -> "arm_roll_joint" [label="xyz: 0.005 0 0.345 \nrpy: 0 -0 0"]
+"arm_roll_joint" -> "arm_roll_link"
+"arm_roll_link" -> "wrist_flex_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"wrist_flex_joint" -> "wrist_flex_link"
+"wrist_flex_link" -> "wrist_roll_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"wrist_roll_joint" -> "wrist_ft_sensor_mount_link"
+"wrist_ft_sensor_mount_link" -> "wrist_ft_sensor_frame_joint" [label="xyz: 0 0 0.0735 \nrpy: -3.14159 -0 0"]
+"wrist_ft_sensor_frame_joint" -> "wrist_ft_sensor_frame"
+"wrist_ft_sensor_frame" -> "wrist_ft_sensor_frame_inverse_joint" [label="xyz: 0 0 0.0735 \nrpy: 3.14159 0 0"]
+"wrist_ft_sensor_frame_inverse_joint" -> "wrist_roll_link"
+"wrist_roll_link" -> "hand_palm_joint" [label="xyz: 0.012 0 0.1405 \nrpy: 0 -0 -3.14159"]
+"hand_palm_joint" -> "hand_palm_link"
+"hand_palm_link" -> "hand_camera_frame_joint" [label="xyz: 0.039 0 -0.0045 \nrpy: 0 -0 0"]
+"hand_camera_frame_joint" -> "hand_camera_frame"
+"hand_camera_frame" -> "hand_camera_gazebo_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -1.5708 1.5708"]
+"hand_camera_gazebo_frame_joint" -> "hand_camera_gazebo_frame"
+"hand_palm_link" -> "hand_l_proximal_joint" [label="xyz: -0.01675 -0.0245 -0.0175 \nrpy: 0 -0 0"]
+"hand_l_proximal_joint" -> "hand_l_proximal_link"
+"hand_l_proximal_link" -> "hand_l_spring_proximal_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hand_l_spring_proximal_joint" -> "hand_l_spring_proximal_link"
+"hand_l_spring_proximal_link" -> "hand_l_mimic_distal_joint" [label="xyz: 0 0 0.07 \nrpy: 0 -0 0"]
+"hand_l_mimic_distal_joint" -> "hand_l_mimic_distal_link"
+"hand_l_mimic_distal_link" -> "hand_l_distal_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hand_l_distal_joint" -> "hand_l_distal_link"
+"hand_l_distal_link" -> "hand_l_finger_tip_frame_joint" [label="xyz: 0.01675 0.01865 0.04289 \nrpy: -1.5708 0 0"]
+"hand_l_finger_tip_frame_joint" -> "hand_l_finger_tip_frame"
+"hand_l_distal_link" -> "hand_l_finger_vacuum_frame_joint" [label="xyz: 0.00475 -0.011539 0.03322 \nrpy: 0.785398 -0 0"]
+"hand_l_finger_vacuum_frame_joint" -> "hand_l_finger_vacuum_frame"
+"hand_palm_link" -> "hand_motor_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hand_motor_joint" -> "hand_motor_dummy_link"
+"hand_palm_link" -> "hand_r_proximal_joint" [label="xyz: -0.01675 0.0245 -0.0175 \nrpy: 0 -0 0"]
+"hand_r_proximal_joint" -> "hand_r_proximal_link"
+"hand_r_proximal_link" -> "hand_r_spring_proximal_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hand_r_spring_proximal_joint" -> "hand_r_spring_proximal_link"
+"hand_r_spring_proximal_link" -> "hand_r_mimic_distal_joint" [label="xyz: 0 0 0.07 \nrpy: 0 -0 0"]
+"hand_r_mimic_distal_joint" -> "hand_r_mimic_distal_link"
+"hand_r_mimic_distal_link" -> "hand_r_distal_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hand_r_distal_joint" -> "hand_r_distal_link"
+"hand_r_distal_link" -> "hand_r_finger_tip_frame_joint" [label="xyz: 0.01675 -0.01865 0.04289 \nrpy: 1.5708 -0 0"]
+"hand_r_finger_tip_frame_joint" -> "hand_r_finger_tip_frame"
+"base_link" -> "base_b_bumper_joint" [label="xyz: 0 0.0013 0 \nrpy: 0 -0 -3.14159"]
+"base_b_bumper_joint" -> "base_b_bumper_link"
+"base_link" -> "base_f_bumper_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_f_bumper_joint" -> "base_f_bumper_link"
+"base_link" -> "base_imu_frame_joint" [label="xyz: 0.0005 0.1296 0.181 \nrpy: 0 -0 0"]
+"base_imu_frame_joint" -> "base_imu_frame"
+"base_link" -> "base_range_sensor_joint" [label="xyz: 0.1675 0 0.1844 \nrpy: 0 -0 0"]
+"base_range_sensor_joint" -> "base_range_sensor_link"
+"base_link" -> "base_roll_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_roll_joint" -> "base_roll_link"
+"base_roll_link" -> "base_l_drive_wheel_joint" [label="xyz: -0.11 0.133 0.04 \nrpy: 0 -0 0"]
+"base_l_drive_wheel_joint" -> "base_l_drive_wheel_link"
+"base_roll_link" -> "base_l_passive_wheel_x_frame_joint" [label="xyz: 0.1495 0.055 0.03 \nrpy: 0 -0 0"]
+"base_l_passive_wheel_x_frame_joint" -> "base_l_passive_wheel_x_frame"
+"base_l_passive_wheel_x_frame" -> "base_l_passive_wheel_y_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_l_passive_wheel_y_frame_joint" -> "base_l_passive_wheel_y_frame"
+"base_l_passive_wheel_y_frame" -> "base_l_passive_wheel_z_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_l_passive_wheel_z_joint" -> "base_l_passive_wheel_z_link"
+"base_roll_link" -> "base_r_drive_wheel_joint" [label="xyz: -0.11 -0.133 0.04 \nrpy: 0 -0 0"]
+"base_r_drive_wheel_joint" -> "base_r_drive_wheel_link"
+"base_roll_link" -> "base_r_passive_wheel_x_frame_joint" [label="xyz: 0.1495 -0.055 0.03 \nrpy: 0 -0 0"]
+"base_r_passive_wheel_x_frame_joint" -> "base_r_passive_wheel_x_frame"
+"base_r_passive_wheel_x_frame" -> "base_r_passive_wheel_y_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_r_passive_wheel_y_frame_joint" -> "base_r_passive_wheel_y_frame"
+"base_r_passive_wheel_y_frame" -> "base_r_passive_wheel_z_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_r_passive_wheel_z_joint" -> "base_r_passive_wheel_z_link"
+"base_link" -> "torso_lift_joint" [label="xyz: 0 0 0.752 \nrpy: 0 -0 0"]
+"torso_lift_joint" -> "torso_lift_link"
+"torso_lift_link" -> "head_pan_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"head_pan_joint" -> "head_pan_link"
+"head_pan_link" -> "head_tilt_joint" [label="xyz: 0.02 0 0 \nrpy: 0 -0 0"]
+"head_tilt_joint" -> "head_tilt_link"
+"head_tilt_link" -> "head_center_camera_frame_joint" [label="xyz: 0.0195 0 0.061 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"head_center_camera_frame_joint" -> "head_center_camera_frame"
+"head_center_camera_frame" -> "head_center_camera_gazebo_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -1.5708 1.5708"]
+"head_center_camera_gazebo_frame_joint" -> "head_center_camera_gazebo_frame"
+"head_tilt_link" -> "head_l_stereo_camera_joint" [label="xyz: 0.02 0.07 0.061 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"head_l_stereo_camera_joint" -> "head_l_stereo_camera_link"
+"head_l_stereo_camera_link" -> "head_l_stereo_camera_gazebo_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -1.5708 1.5708"]
+"head_l_stereo_camera_gazebo_frame_joint" -> "head_l_stereo_camera_gazebo_frame"
+"head_tilt_link" -> "head_r_stereo_camera_joint" [label="xyz: 0.02 -0.07 0.061 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"head_r_stereo_camera_joint" -> "head_r_stereo_camera_link"
+"head_r_stereo_camera_link" -> "head_r_stereo_camera_gazebo_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -1.5708 1.5708"]
+"head_r_stereo_camera_gazebo_frame_joint" -> "head_r_stereo_camera_gazebo_frame"
+"head_tilt_link" -> "head_rgbd_sensor_joint" [label="xyz: -0.079796 0.022 0.215172 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"head_rgbd_sensor_joint" -> "head_rgbd_sensor_link"
+"head_rgbd_sensor_link" -> "head_rgbd_sensor_gazebo_frame_joint" [label="xyz: 0 0 0 \nrpy: 0 -1.5708 1.5708"]
+"head_rgbd_sensor_gazebo_frame_joint" -> "head_rgbd_sensor_gazebo_frame"
+}
