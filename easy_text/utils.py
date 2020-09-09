@@ -128,7 +128,7 @@ def move_base_goal(x, y, theta):
     goal = MoveBaseGoal()
 
     # "map"座標を基準座標に指定
-    goal.target_pose.header.frame_id = "/map"
+    goal.target_pose.header.frame_id = "map"
 
     # ゴールのx,y座標をセットします
     goal.target_pose.pose.position.x = x
