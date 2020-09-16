@@ -5,6 +5,8 @@ HSRシミュレータ上で動作するjupyter notebook
 Authors
 ---
  * Yosuke Matsusaka
+ * Nobuyuki Matsuno
+ * Suomi Tanishige
 
 Contact
 ---
