@@ -1,6 +1,6 @@
-本パッケージについて
+About this package
 ---
-HSRシミュレータ上で動作するjupyter notebook
+This package contains Jupyter notebooks that run in the HSR Simulator.
 
 Authors
 ---
