@@ -174,8 +174,8 @@ def get_relative_coordinate(parent, child):
 
 
 # moveitでの制御対象として全身制御を指定
-whole_body = moveit_commander.MoveGroupCommander("whole_body_light")
-# whole_body = moveit_commander.MoveGroupCommander("whole_body_weighted")
+whole_body = moveit_commander.MoveGroupCommander("whole_body_light", wait_for_servers=20.0)
+# whole_body = moveit_commander.MoveGroupCommander("whole_body_weighted", wait_for_servers=20.0)
 whole_body.allow_replanning(True)
 whole_body.set_workspace([-3.0, -3.0, 3.0, 3.0])
 
