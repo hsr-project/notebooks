@@ -291,7 +291,7 @@ def get_object_dict():
     """
 
     object_dict = {}
-    paths = glob.glob("/opt/ros/melodic/share/tmc_wrs_gazebo_worlds/models/ycb*")
+    paths = glob.glob("/opt/ros/" + os.environ.get('ROS_DISTRO', 'noetic') + "/share/tmc_wrs_gazebo_worlds/models/ycb*")
     for path in paths:
         file = os.path.basename(path)
         object_dict[file[8:]] = file
